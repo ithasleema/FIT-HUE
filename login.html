@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fit and Hue - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Fit and Hue</h1>
+    <p class="tagline">Find your perfect fit, embrace your unique.</p>
+    <form id="loginForm" onsubmit="handleLogin(event)">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p id="errorMessage" class="error-message"></p>
+  </div>
+
+  <script>
+    // Predefined credentials
+    const predefinedUsername = "user123";
+    const predefinedPassword = "pass123";
+
+    // Handle login form submission
+    function handleLogin(event) {
+      event.preventDefault();
+
+      // Get user inputs
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Validate credentials
+      if (username === predefinedUsername && password === predefinedPassword) {
+        alert('Login successful! Redirecting to the main page...');
+        window.location.href = 'index.html'; // Redirect to the main page
+      } else {
+        // Show error message
+        const errorMessage = document.getElementById('errorMessage');
+        errorMessage.textContent = 'Invalid username or password. Please try again.';
+        errorMessage.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
